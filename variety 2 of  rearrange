@@ -1,0 +1,22 @@
+class Solution:
+    def rearrange(self,arr):
+        pos = []
+        neg = []
+        for x in arr:
+            if x >= 0:
+                pos.append(x)
+            else:
+                neg.append(x)
+        k = min(len(pos), len(neg))
+        ind = 0
+        for i in range(k):
+            arr[ind] = pos[i]
+            arr[ind + 1] = neg[i]
+            ind += 2
+        for i in range(k, len(pos)):
+            arr[ind] = pos[i]
+            ind += 1
+        for i in range(k, len(neg)):
+            arr[ind] = neg[i]
+            ind += 1
+        return arr
