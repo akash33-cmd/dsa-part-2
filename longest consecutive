@@ -1,0 +1,16 @@
+class Solution(object):
+    def longestConsecutive(self, nums):
+        n = len(nums)
+        longest = 0
+        nums.sort()
+        smallest = float('-inf')
+        count = 0
+        for i in range(0,n):
+            if nums[i]-1 == smallest:
+                count += 1
+                smallest = nums[i]
+            elif nums[i] != smallest :
+                count = 1
+                smallest = nums[i]
+            longest = max(longest,count)
+        return longest
