@@ -1,0 +1,14 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        prefix = {}
+        total = 0
+        count = 0
+        for x in nums:
+            total += x
+            if k == total :
+                count += 1
+            rem = total - k
+            if rem in prefix:
+                count += prefix[rem]
+            prefix[total] = prefix.get(total,0)+1
+        return count
