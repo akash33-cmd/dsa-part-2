@@ -1,0 +1,11 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        count = 0
+        n = len(nums)
+        for i in range(0,n):
+            sumi = 0
+            for j in range(i,n):
+                sumi += nums[j]
+                if k == sumi :
+                    count += 1
+        return count
