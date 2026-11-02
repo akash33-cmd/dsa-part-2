@@ -1,0 +1,9 @@
+def func(n, r):
+    res = 1
+    for i in range(r):
+        res = res * (n - i)
+        res = res // (i + 1)
+    return res
+
+def pascalElement(row, col):
+    return func(row - 1, col - 1)
