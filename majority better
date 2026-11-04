@@ -1,0 +1,14 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        n = len(nums)
+        mm = (n // 3) + 1
+        map = {}
+        ls = []
+        for i in range(0,n):
+            if nums[i] not in map:
+                map[nums[i]] = 1
+            else :
+                map[nums[i]] += 1
+            if map[nums[i]] == mm:
+                ls.append(nums[i])
+        return ls
