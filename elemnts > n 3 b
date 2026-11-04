@@ -1,0 +1,16 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        n = len(nums)
+        ls = []
+        for i in range(0,n):
+            if len(ls) == 0 or ls[0] != nums[i]:
+                count = 0
+                for j in range(0,n):
+                    if nums[i] == nums[j]:
+                        count += 1
+                if count > n / 3:
+                    ls.append(nums[i])
+            if len(ls) == 2:
+                break
+        return ls
+        
