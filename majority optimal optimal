@@ -1,0 +1,36 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        n = len(nums)
+        count1 = 0
+        count2 = 0
+        el1 = float('-inf')
+        el2 = float('-inf')
+        for i in range(0,n):
+            if count1 == 0 and nums[i] != el2:
+                count1 = 1
+                el1 = nums[i]
+            elif count2 == 0 and nums[i] != el1:
+                count2 = 1
+                el2 = nums[i]
+            elif el1 == nums[i]:
+                count1 += 1
+            elif el2 == nums[i]:
+                count2 += 1
+            else : 
+                count1 -= 1
+                count2 -= 1
+        ls = []
+        coun1 = 0
+        coun2 = 0
+        for i in range(0,n):
+            if el1 == nums[i]:
+                coun1 += 1
+            if el2 == nums[i]:
+                coun2 += 1
+        mm = (n//3) + 1
+        if coun1 >= mm:
+            ls.append(el1)
+        if coun2 >= mm:
+            ls.append(el2)
+        ls . sort()
+        return ls
