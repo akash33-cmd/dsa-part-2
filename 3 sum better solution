@@ -1,0 +1,15 @@
+class Solution(object):
+    def threeSum(self, nums):
+        n = len(nums)
+        ans = []
+        st = set()
+        for i in range(0,n):
+            hashi = set()
+            for j in range(i+1,n):
+                jp = -(nums[i]+nums[j])
+                if jp in hashi :
+                    temp = tuple(sorted([nums[i],nums[j],jp]))
+                    st.add(temp)
+                hashi.add(nums[j])
+        ans = [list(x) for x in st]
+        return ans
