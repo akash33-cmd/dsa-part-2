@@ -1,0 +1,11 @@
+class Solution:
+    def subarrayXor(self, arr, m):
+        # code here
+        count = 0
+        xor = 0
+        hashi = {0:1}
+        for num in arr:
+            xor ^= num
+            count += hashi.get(xor^m,0)
+            hashi[xor] = hashi.get(xor,0)+1
+        return count
